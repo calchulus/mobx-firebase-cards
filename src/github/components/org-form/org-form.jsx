@@ -1,10 +1,11 @@
 import React from 'react';
-import {observer} from 'mobx-react';
+import {inject, observer} from 'mobx-react';
+import githubStore from '../../github.store'
 
 import styles from './org-form.css';
 
-@observer(['githubStore'])
-export default class OrgForm extends React.Component {
+@inject("githubStore") @observer
+class OrgForm extends React.Component {
 
     render() {
         const {orgName, loading, error} = this.props.githubStore;
@@ -45,3 +46,5 @@ export default class OrgForm extends React.Component {
         this.props.githubStore.loadRepos();
     }
 }
+
+export default OrgForm;

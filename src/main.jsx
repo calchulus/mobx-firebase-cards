@@ -1,25 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {browserHistory, Router} from 'react-router';
-import {Provider} from 'mobx-react';
 
-// Routes
-import {routes} from './routes';
-
-// Stores
-import {store} from './store';
-import {clockStore} from './clock';
-import {githubStore} from './github';
-
+import {App} from './app'
+import {appStore} from './app';
 // Styles
 import 'sanitize.css/sanitize.css';
 import './assets/styles/styles.css';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
-ReactDOM.render(
-    <Provider store={store} clockStore={clockStore} githubStore={githubStore}>
-        <Router history={browserHistory}>
-            {routes}
-        </Router>
-    </Provider>,
-    document.querySelector('main')
-);
+injectTapEventPlugin();
+
+
+
+ReactDOM.render(<App appStore={ appStore } />, document.querySelector('main'));
+
+
+
+
+

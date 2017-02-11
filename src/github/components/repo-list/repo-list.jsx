@@ -1,8 +1,8 @@
 import React from 'react';
-import {observer} from 'mobx-react';
-
-@observer(['githubStore'])
-export default class RepoList extends React.Component {
+import {inject, observer} from 'mobx-react';
+import {githubStore} from '../../github.store';
+@inject("githubStore") @observer
+class RepoList extends React.Component {
 
     render() {
         const {repos} = this.props.githubStore;
@@ -38,3 +38,4 @@ export default class RepoList extends React.Component {
     }
 
 }
+export default RepoList;
