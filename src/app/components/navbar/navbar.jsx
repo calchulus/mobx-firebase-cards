@@ -1,11 +1,39 @@
 import React from 'react';
-import {IndexLink, Link} from 'react-router';
+import {observer} from 'mobx-react';
 
-import s from './navbar.css';
+/* material-ui */
+import Drawer from 'material-ui/Drawer';
+import Menu from 'material-ui/Menu';
+import MenuItem from 'material-ui/MenuItem';
+import CancelIcon from 'material-ui/svg-icons/navigation/cancel';
+import Divider from 'material-ui/Divider';
 
-export default () => (
-    <nav className={s.navbar}>
-        <IndexLink to="/" activeClassName={s.active}>HOME</IndexLink>
-        <Link to="/clock" activeClassName={s.active}>CLOCK</Link>
-    </nav>
-);
+@observer(['appStore'])
+class Navbar extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+    }
+    handleClose = () =>{
+        this.props.appStore.toggleMenu();
+    }
+    render() {
+        let { menuToggle } = this.props.appStore;
+        return (
+
+                <Drawer docked={false}
+                        width={224}
+                        open={ menuToggle }
+                >
+                    <Menu>
+                        <MenuItem onTouchTap={this.handleClose} primaryText="Cards of the Magi" rightIcon={<CancelIcon />} />
+                        <Divider />
+                    </Menu>
+                </Drawer>
+
+        );
+    }
+}
+
+export default Navbar;
