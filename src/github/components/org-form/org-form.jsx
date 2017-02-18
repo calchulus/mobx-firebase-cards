@@ -1,10 +1,10 @@
 import React from 'react';
 import {inject, observer} from 'mobx-react';
-import githubStore from '../../github.store'
+import {githubStore} from '../../github.store';
 
 import styles from './org-form.css';
 
-@inject("githubStore") @observer
+@inject('githubStore') @observer
 class OrgForm extends React.Component {
 
     render() {

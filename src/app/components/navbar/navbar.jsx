@@ -15,24 +15,27 @@ class Navbar extends React.Component {
         super(props);
 
     }
-    handleClose = () =>{
-        this.props.appStore.toggleMenu();
-    }
+
+
+
     render() {
-        let { menuToggle } = this.props.appStore;
+        let {showSideBar, toggleMenu} = this.props.appStore;
         return (
 
-                <Drawer docked={false}
-                        width={224}
-                        open={ menuToggle }
-                >
-                    <Menu>
-                        <MenuItem onTouchTap={this.handleClose} primaryText="Cards of the Magi" rightIcon={<CancelIcon />} />
-                        <Divider />
-                    </Menu>
-                </Drawer>
+            <Drawer docked={false}
+                    width={224}
+                    open={ showSideBar }
+            >
+                <Menu>
+                    <MenuItem onTouchTap={() => this.handleClose()} primaryText="Cards of the Magi" rightIcon={<CancelIcon />}/>
+                    <Divider />
+                </Menu>
+            </Drawer>
 
         );
+    }
+    handleClose() {
+        this.props.appStore.toggleMenu();
     }
 }
 

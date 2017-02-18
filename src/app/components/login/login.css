@@ -1,2 +1,12 @@
 .login {
+    padding: 1em;
+    width : 26.66em;
+
+    margin-top: -2em;
+}
+.cardActions {
+    flex:1;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
 }

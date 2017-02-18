@@ -1,2 +1,13 @@
 .layout {
+    padding-bottom: 1.66em;
+    background-color: #190032;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+
+}
+.footer{
+
+    z-index: 2;
 }

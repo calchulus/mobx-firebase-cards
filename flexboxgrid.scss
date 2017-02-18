@@ -1,0 +1,12 @@
+$grid-columns: 12;
+
+$gutter-width: 1em;
+$outer-margin: 1em;
+
+$breakpoints:
+        sm 38rem 38rem,
+        md 52rem 52rem,
+        lg 80rem 78rem,
+        xl 120rem 116rem;
+
+@import "~flexboxgrid-sass/flexboxgrid.scss";
