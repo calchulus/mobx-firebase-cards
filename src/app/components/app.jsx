@@ -12,9 +12,9 @@ import {clockStore} from '../../clock';
 import {store} from '../../store';
 import LoginForm from '../components/login';
 
-// "pages"
+// "pages/components"
 import {ClockPage} from '../../clock';
-//import {GithubPage} from '../../github';
+import {Loading} from '../components/loading';
 import {Login} from '../components/login';
 import {Dashboard} from '../../dashboard';
 
@@ -74,7 +74,7 @@ class App extends Component {
         let appStore = props.appStore;
         let stores = {store, appStore, githubStore, clockStore};
 
-        return (authenticating === true || loading === true) ? <h1>Loading...</h1> : (
+        return (authenticating === true || loading === true) ? <Loading /> : (
             <MuiThemeProvider muiTheme={getMuiTheme(theme)}>
 
                 <Router>

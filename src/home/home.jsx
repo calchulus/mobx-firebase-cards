@@ -16,9 +16,11 @@ class Home extends React.Component {
 
     render() {
         return (
-            <Flexbox>
+
+            <Flexbox className={styles.home}>
                 <h1>Content</h1>
             </Flexbox>
+
         );
     }
 
